@@ -1,0 +1,15 @@
+﻿.vscode
+Docs
+Library
+Logs
+Temp
+UserSettings
+._.DS_Store
+._.vscode
+._Assets
+._Docs
+._Library
+._Logs
+.vsconfig
+Assembly-CSharp.csproj
+unit_3_rasputin.sln
