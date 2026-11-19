@@ -1,4 +1,4 @@
-﻿.vscode
+.vscode
 Docs
 Library
 Logs
@@ -15,4 +15,3 @@ Assembly-CSharp.csproj
 unit_3_rasputin.sln
 
 Golf_build_BackUpThisFolder_ButDontShipItWithYourGame/
-*.apk
