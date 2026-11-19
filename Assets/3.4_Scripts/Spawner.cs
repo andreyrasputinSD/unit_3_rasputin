@@ -4,29 +4,40 @@ using UnityEngine;
 namespace TZ
 {
     /// <summary>
-    /// Spawns a random rock from the list at the spawner position.
+    /// Спавнит случайный камень из списка в позиции спавнера.
     /// </summary>
     public class Spawner : MonoBehaviour
     {
         public List<GameObject> prefabs = new List<GameObject>();
 
-        public void Spawn()
+        /// <summary>
+        /// Возвращает случайный префаб камня (null, если список пуст).
+        /// </summary>
+        public GameObject GetRandomPrefab()
         {
             if (prefabs == null || prefabs.Count == 0)
             {
                 Debug.LogError("Spawner: prefabs list is empty", this);
-                return;
+                return null;
             }
 
-            GameObject prefab = prefabs[Random.Range(0, prefabs.Count)];
+            return prefabs[Random.Range(0, prefabs.Count)];
+        }
+
+        public GameObject Spawn()
+        {
+            return Spawn(GetRandomPrefab());
+        }
+
+        public GameObject Spawn(GameObject prefab)
+        {
             if (prefab == null)
             {
                 Debug.LogError("Spawner: prefab == null", this);
-                return;
+                return null;
             }
 
-            Instantiate(prefab, transform.position, Quaternion.identity);
-            Debug.Log($"Spawner: spawned {prefab.name}", this);
+            return Instantiate(prefab, transform.position, Quaternion.identity);
         }
     }
 }
